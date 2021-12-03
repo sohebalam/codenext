@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { getSession, signIn } from 'next-auth/client'
+import { useState, useEffect } from "react"
+import { getSession, signIn } from "next-auth/react"
 
 function Dashboard() {
   const [loading, setLoading] = useState(true)

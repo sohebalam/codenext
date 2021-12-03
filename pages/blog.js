@@ -1,7 +1,7 @@
-import { getSession, useSession } from 'next-auth/client'
+import { getSession, useSession } from "next-auth/react"
 
 function Blog({ data }) {
-  const [session] = useSession()
+  const { data: session } = useSession()
   console.log({ session })
 
   return <h1>Blog page - {data}</h1>
@@ -14,15 +14,15 @@ export async function getServerSideProps(context) {
   if (!session) {
     return {
       redirect: {
-        destination: '/api/auth/signin?callbackUrl=http://localhost:3000/blog',
-        permanent: false
-      }
+        destination: "/api/auth/signin?callbackUrl=http://localhost:3000/blog",
+        permanent: false,
+      },
     }
   }
   return {
     props: {
-      data: 'List of 100 personalized blogs',
-      session
-    }
+      data: "List of 100 personalized blogs",
+      session,
+    },
   }
 }
