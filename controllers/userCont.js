@@ -18,7 +18,7 @@ export const Register = async (user) => {
   const registereduser = await User.create({
     socialId: user.id,
     name: user.name,
-    email: user.email,
+    email: user.email || "",
     // password: hashPassword || "",
   })
 }

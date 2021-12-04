@@ -2,7 +2,7 @@ import NextAuth from "next-auth"
 import GithubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 import TwitterProvider from "next-auth/providers/twitter"
-import { Register } from "../../../controllers/userCont"
+import { SocialReg } from "../../../controllers/userCont"
 
 export default NextAuth({
   providers: [
@@ -42,8 +42,8 @@ export default NextAuth({
     async session({ session, token }) {
       session.user.id = token.sub
 
-      if (session) {
-        Register(session.user)
+      if (session?.user.id) {
+        SocialReg(session.user)
       }
 
       return session
