@@ -1,7 +1,7 @@
 import User from "../models/userModel"
 import connectDB from "../connectDB"
 
-export const Register = async (user) => {
+export const SocialReg = async (user) => {
   console.log("cont", user)
 
   connectDB()
